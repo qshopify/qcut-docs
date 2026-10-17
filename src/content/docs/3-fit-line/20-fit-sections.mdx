@@ -1,0 +1,73 @@
+---
+title: "Fit sections"
+description: "Sections built around the fit line: Fit hero, Fit map, Fit shop, Fit compare and Size finder."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+These sections put the [fit line](/docs/fit-line/how-the-fit-line-works) at the center of a page. Add them from **Add section** in the theme editor, on any page. Every product they show needs a `custom.fit_position` metafield; products without one are left out. See [Fit data](/docs/fit-line/fit-data).
+
+## Fit hero
+
+A home page opener: a large image on one side and, on the other, the heading, a line of text, buttons and one product's fit line, sizes in stock and model line. Pick the product with **Product**. Its fit line is a size picker, so shoppers can drag it and the button opens the product in that size.
+
+Add up to three **Measurement callout** blocks to pin measurements on the image, such as *Thigh 33 cm · relaxed*. Place each one with **Horizontal position** and **Vertical position**, in percent of the image. Set **Heading level** to **H1** when the fit hero is the first section on the page.
+
+<img width="800" height="476" src="/images/docs/fit-hero.png" alt="The Fit hero section: trousers on a stool with two measurement callouts pinned on them, and beside it the heading Find the fit, not the size, the fit line with a second marker for last season, sizes and a Shop button." />
+
+<SettingsTable section="fit-hero" />
+
+## Fit map
+
+A whole collection on one fit line, with one row per product type, so shoppers see at a glance which trousers, shirts and jackets run close and which run loose. Each product is a dot at its fit position, with its name beside it. Names are spread over several lanes so neighbors don't overlap.
+
+Choose a **Collection** and how many **Products** to map. With no collection picked, the section maps the current collection on collection pages, or the product's first collection on product pages. On a product page, the current product is drawn in the fit marker color.
+
+Turn on **Show product images** to replace each dot with a small photo of the product. Hovering or focusing a photo shows a larger card with the zone and the price. On phones, the map scrolls sideways inside its box.
+
+<img width="800" height="487" src="/images/docs/fit-map.png" alt="The Fit map section with product images: one fit line from Close to Oversized and a row each for Outerwear, Trousers, Knitwear and Tees, every product shown as a small photo at its fit position with its name." />
+
+<SettingsTable section="fit-map" />
+
+## Fit shop
+
+Shop by fit, not by size. One large fit line runs across the page and the products below it re-sort as the shopper drags the marker, so the pieces that sit closest to that fit slide to the front. Shoppers can also tap a zone name or use the arrow keys. A line under the fit line says how many pieces sit in the current zone.
+
+- **Collection** — the products to choose from. With no collection picked, the section uses the current collection on collection pages, or all products elsewhere.
+- **Products to choose from** sets how many products are considered, and **Products shown** how many show at once.
+- **Start at** sets where the marker starts, from 0 (close) to 100 (oversized). With **Start at the last product viewed** on, the section opens on the fit of the product the shopper last looked at instead, and says so.
+
+Without JavaScript, the first products simply show in collection order. The **fit** collection template uses this section under its banner. See [Collection pages](/docs/collections-and-search/collection-pages).
+
+<img width="800" height="500" src="/images/docs/fit-shop.png" alt="The Fit shop section: heading and text, the current zone name Regular in large type over a ruler with the marker, the zone names, 10 pieces sit Regular, and product cards underneath." />
+
+<SettingsTable section="fit-shop" />
+
+## Fit compare
+
+Two to four products on one shared fit line, then a card for each with its garment measurements in one size. Use it to explain the difference between your cuts, for example three trousers from slim to wide.
+
+Add a **Product** block for each product, up to four. **Short name** replaces the product title over its marker, such as *Cut 01*. The first product's marker is drawn in the fit marker color and the others in the text color.
+
+**Compare size** sets the size whose measurements appear on each card. It must match a size in the products' `custom.measurements`, such as *M*. A product without that size shows its card without measurements.
+
+<img width="800" height="400" src="/images/docs/fit-compare.png" alt="The Fit compare section: three cuts on one shared fit line with their labels above their markers (the two closest names on two levels), and a card per cut with its photo, zone and garment measurements in size M." />
+
+<SettingsTable section="fit-compare" />
+
+## Size finder
+
+A short quiz that gives the shopper a size in your size run. They answer two questions:
+
+- **Usual size elsewhere** — a size they wear in other shops.
+- **How do you like it to sit?** — **Closer**, **As usual** or **Looser**, which moves the result one size down, keeps it, or moves it one size up.
+
+They can also enter their height, which is saved for their own reference only. The result, such as *Your size here: M*, is saved in the shopper's browser. From then on, every product page marks that size's row in the measurement tables and shows *Your size: M* with them, and the fit line of every product that comes in that size is drawn for it. See [Who the line is drawn for](/docs/fit-line/how-the-fit-line-works#who-the-line-is-drawn-for).
+
+List your sizes in **Size run**, smallest first, separated by commas, such as `XS,S,M,L,XL`. Use the same names as your products' **Size** option values. The **fit-guide** page template includes this section.
+
+<img width="800" height="241" src="/images/docs/size-finder.png" alt="The Size finder section on a dark scheme: heading and text on the left, and Height, cm and Usual size elsewhere fields, Closer / As usual / Looser choices and a Find my size button on the right." />
+
+<SettingsTable section="size-finder" />
+

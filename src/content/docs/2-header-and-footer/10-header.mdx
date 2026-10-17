@@ -1,0 +1,71 @@
+---
+title: "Header and navigation"
+description: "Logo and wordmark, four header layouts, mega menu or dropdown navigation, shop by fit, search, sticky behavior and the transparent header."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+The header holds your logo, main menu, search, the account component and the bag. Open it from the **Header** group in the theme editor.
+
+<img width="800" height="82" src="/images/docs/header.png" alt="The announcement bar and the header in the Logo left layout: the Halden wordmark on the left, the main menu next to it, and search and a bordered Bag box on the right." />
+
+## Logo and wordmark
+
+Upload your logo under **Logo image**. Any shape works — wide wordmarks and tall marks alike — and **Logo width** sets its size on desktop.
+
+Without an image, the header shows a text wordmark in the heading font. **Wordmark text** sets what it says — leave it empty to use your store name — and **Text logo size** sets its size. The same wordmark heads the mobile menu.
+
+## Layout
+
+- **Logo center, navigation left** — an editorial layout with the menu on the left and icons on the right.
+- **Logo left, navigation center** — a classic layout for larger menus.
+- **Logo on top, menu below** — the logo centered on its own row, with the menu centered in a row underneath.
+- **Menu button on every screen** — no inline menu at all: a *Menu* button opens the side drawer on desktop too, and the logo sits in the center. Good for small catalogs and image-led stores.
+
+<img width="800" height="114" src="/images/docs/header-stacked.png" alt="The header in the Stacked layout (Drape): Search on the left, the wordmark centered and the Bag on the right on the first row, and the main menu centered on a second row under a hairline." />
+
+<img width="800" height="77" src="/images/docs/header-drawer.png" alt="The header in the Drawer layout (Rivet): a Menu button on the left, the wordmark in the center, and search and the Bag on the right." />
+
+Turn on **Show search field** to replace the search icon with an inline search field, and set its **Search field placeholder**. On phones the field sits on its own row under the bar. The **Logo on top, menu below** and **Menu button on every screen** layouts keep the search icon, since there's no room for a field.
+
+## Menus
+
+The header uses the menu chosen in **Main menu** — by default your store's *Main menu*. Menus can be up to three levels deep. Choose how a top-level item with children opens with **Menu style**:
+
+- **Mega menu** — a full-width panel with one column of links per child item, a shop by fit column and optional image cards.
+- **Dropdown** — a compact list under the link, with third-level links indented underneath and the fit zones as chips at the bottom.
+
+<img width="800" height="365" src="/images/docs/header-dropdown.png" alt="A Dropdown menu open under Women in the stacked header: child links, then Shop by fit with Close, Regular, Relaxed and Oversized chips." />
+
+To add an image card to a mega menu, add a **Navigation image** block and enter the exact name of the top-level item in **Navigation item** (for example *Shop*). Add two blocks with the same item name for a pair of cards. Image cards appear in the **Mega menu** style only.
+
+## Shop by fit
+
+**Shop by fit** adds the four fit zones as links in your menus — a column in every mega menu, chips in dropdowns and chips in the mobile menu. Each link opens a collection filtered to that zone.
+
+1. In the Shopify Search & Discovery app, add a product metafield filter on your fit zone metafield, for example `custom.fit_zone`, whose values are the zone names (Close, Regular, Relaxed, Oversized, or the names you set in **Theme settings > Fit line > Zone names**).
+2. In the header, choose a **Collection** for the links to open, such as *All* or *New in*.
+3. Enter the filter's **Filter parameter**, for example `filter.p.m.custom.fit_zone`.
+
+The links appear only when both settings are filled in. See [Fit filter](/docs/getting-started/theme-settings#fit-filter).
+
+## Sticky and transparent header
+
+- **Sticky header** keeps the header on screen — **Always**, or only **On scroll up** so it gets out of the way while reading.
+- **Shrink when scrolled** makes the header 60 px tall, with a soft shadow, once the page scrolls.
+- **Transparent over the home page hero** lays the header over the first section on the home page. Choose **Transparent header text** to suit light or dark images.
+
+## Account and bag
+
+QCut shows Shopify's customer account component in the header on desktop and mobile. Customers can sign in, see their orders and manage their profile without leaving your store. The links in the account menu come from **Settings > Customer accounts** in your admin.
+
+From tablet width up, the bag is a bordered *Bag* box with a two-digit item count; on phones it's an icon with a badge. Either one opens the cart drawer.
+
+## Mobile navigation
+
+On phones the menu opens in a drawer, colored with the **Navigation and drawers color scheme** (also used for menu panels and the search drawer). Country and language selectors can be added to the bottom of the drawer.
+
+**Mobile menu collection tiles** adds a grid of color tiles under the menu, one per collection you choose (up to eight) — for example one per category. Each tile is filled with the collection's color from its `custom.color` metafield, and text on each tile turns light or dark to suit its color. **Collection tiles heading** sets the small heading above the tiles. See [Collection metafields](/docs/fit-line/fit-data#collection-metafields).
+
+<SettingsTable section="header" />

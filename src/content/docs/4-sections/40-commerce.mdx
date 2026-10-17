@@ -1,0 +1,104 @@
+---
+title: "Commerce sections"
+description: "Featured product, featured collection, collection tabs, collection list, shoppable image, bundle builder, gift card purchase and blog posts."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+<Callout type="note" title="Fit shop and Fit map">
+The **Fit shop** and **Fit map** sections, which let shoppers browse by fit, are documented with the other fit sections. See [Fit sections](/docs/fit-line/fit-sections).
+</Callout>
+
+## Featured product
+
+Sell one product anywhere: image, price, variant picker, buy button, Shop Pay Installments and accelerated checkout. Images, videos and 3D models all play here. Add **Custom liquid** or app blocks under the form.
+
+Choose a **Layout**:
+
+- **Stacked** — the product's colorway band as a rail on the left, a large title, the fit line and buy button, and one image. It's the layout for new Featured product sections.
+- **Product hero — edge to edge, 50 / 50** — a full-width band with the image beside the buy box.
+- **Contained, image beside the form** — the image beside the full product form, inside the page width.
+
+The section shows the product's fit line, and shoppers can use it to pick a size. Dragging the marker along the line — or using the arrow keys — snaps to a size and selects it in the variant picker, so the price, image and **Add to cart** button update to that size. See [How the fit line works](/docs/fit-line/how-the-fit-line-works).
+
+<img width="800" height="500" src="/images/docs/featured-product.png" alt="The Featured product section: the product image on the left, and the eyebrow, title, fit line, price, size and color buttons and Add to bag on the right." />
+
+<SettingsTable section="featured-product" />
+
+## Featured collection
+
+A grid or a carousel of products from one collection. **Card style** switches between the **Image card** and a **Boxed** card that suits accessories. Choose **Desktop layout** and **Mobile layout** separately.
+
+Turn on **Show fit tabs** to add a row of chips above the products — *All* plus the four fit zones. Choosing a zone shows only the products whose `custom.fit_position` falls in it, without reloading the page. See [How the fit line works](/docs/fit-line/how-the-fit-line-works).
+
+<img width="800" height="500" src="/images/docs/featured-collection.png" alt="The Featured collection section in the Slider layout: heading, Shop all link and arrows, and a row of product cards with fit lines, zone names and sizes." />
+
+<SettingsTable section="featured-collection" />
+
+## Collection tabs
+
+Several collections behind tabs — *Slim*, *Relaxed*, *Oversized* — so shoppers can browse without leaving the page. Add one **Tab** block per collection. Choose a **Layout**:
+
+- **Copy and chips beside the products** — the heading, text and tab chips on the left, the chosen collection's products on the right.
+- **Heading with tabs, products below** — the heading and tabs above, up to four products per row below.
+
+Each tab has a **Color**, used for the active tab's underline in the stacked layout and for a small tick in the chips layout. Leave it blank to use the tab collection's `custom.color` metafield, or else the color scheme's colors in turn, starting with the fit marker color.
+
+<img width="800" height="500" src="/images/docs/collection-tabs.png" alt="The Collection tabs section: eyebrow, heading and text on the left, Close, Regular and Relaxed tabs on the right, and four product cards from the chosen tab underneath." />
+
+<SettingsTable section="collection-tabs" />
+
+## Collection list
+
+Your chosen collections, one **Collection** block each. Without an image, a collection shows its first product's image. Choose a **Style**:
+
+- **Bands** — each collection as a tall band in its color, as tall as its product count compared with the largest collection. Bands is the style for new Collection list sections.
+- **Image with heading below** — an image with the title and product count under it, and the collection's fit range: the stretch of the fit line its products cover, from closest to loosest.
+- **Tiles, heading over the image** — a tall tile with the title and product count over the image, after your **Tile link label**.
+- **Circles** — round thumbnails with a label.
+
+A band's color is the block's **Color**; when that's blank, it's the collection's `custom.color` metafield, or else the color scheme's colors in turn, starting with the fit marker color.
+
+<img width="800" height="490" src="/images/docs/collection-list.png" alt="The Collection list section in the Tiles style: three tall images with the collection title and product count over each." />
+
+<SettingsTable section="collection-list" />
+
+## Shoppable image
+
+A lifestyle photo with hotspots. Each **Hotspot** block links a product to a point on the image; set its **Horizontal position** and **Vertical position** in percent.
+
+**Product card** sets where a hotspot's product shows: **Beside the image**, **Pop over the dot**, or **In-this-look list, cards over image** — a list beside the image shows every hotspot product with its colorway and price, and an *Add all* button; choosing a hotspot opens its card over the image. **Hotspot marker** draws each hotspot as a short band in the **Colorway of the product** or as a **Dot**.
+
+<img width="800" height="485" src="/images/docs/shoppable-image.png" alt="The Shoppable image section: a jacket photo with three colored hotspots, and beside it the selected product's card with a variant dropdown, Add to bag and View full details." />
+
+<SettingsTable section="shoppable-image" />
+
+## Bundle builder
+
+Shoppers pick a set number of products from a collection and add them to the cart in one step. Each product adds its first available variant, so single-variant products such as accessories work best. The **Bundle discount** setting is display-only: create a matching automatic discount in **Discounts** so the price actually changes at checkout.
+
+Choose a **Style**: **Colorway bands** shows tall slots that fill with each pick's colorway band, beside the products to choose from, each with its band down the edge. **Cards** shows product cards beside a summary panel.
+
+<img width="800" height="500" src="/images/docs/bundle-builder.png" alt="The Bundle builder section on a dark scheme: three empty slots and a running total on the left, and product cards to pick from on the right, each with a checkbox and a colorway band." />
+
+<SettingsTable section="bundle-builder" />
+
+## Gift card purchase
+
+Sell your gift card from any page, with amount buttons and the option to send it to a recipient by email on a chosen date. The amounts come from the variants of your **Gift card product**.
+
+**Show colorway band** draws a band down the gift card's edge. Pick a **Colorway product** to use its colors; without one, the band uses the fit marker color.
+
+
+<SettingsTable section="gift-card-purchase" />
+
+## Blog posts
+
+Your latest articles, or articles you pick, as cards.
+
+Choose a **Layout**: **Lead article and list** shows the newest article large, with the next ones listed under a heavy rule. **Cards in a row** shows each article as a card, swiping on phones.
+
+<img width="800" height="430" src="/images/docs/featured-blog.png" alt="The Blog posts section at the end of an article: eyebrow, heading and All stories link, and cards for the other articles with image, topic, reading time and title." />
+
+<SettingsTable section="featured-blog" />

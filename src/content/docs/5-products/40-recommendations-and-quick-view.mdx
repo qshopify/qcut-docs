@@ -1,0 +1,56 @@
+---
+title: "Recommendations, quick view and recently viewed"
+description: "Related and complementary products, the quick view window that opens on the size picked on a card, quick add, and the recently viewed strip."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## Product recommendations
+
+Add the **Product recommendations** section below the product information.
+
+- **Related products** are chosen automatically by Shopify from purchase and browsing patterns.
+- **Complementary products** are the ones you pick in the **Search & Discovery** app — for example a belt for a pair of trousers.
+
+Add the section twice to show both.
+
+Choose a **Layout**:
+
+- **Rows** — each product in a compact row: its colorway band, a thumbnail, the name with its `custom.subtitle` line and fit line, the price and an add button.
+- **Cards** — product cards in a row, with their fit lines.
+
+<img width="800" height="450" src="/images/docs/product-recommendations.png" alt="The Product recommendations section in the Cards layout: four product cards, each with its fit line, zone name and sizes in stock." />
+
+<SettingsTable section="product-recommendations" />
+
+## Quick view and quick add
+
+Turn these on with **Enable quick add** and **Enable quick view** in **Theme settings > Product cards**.
+
+- **Quick add** puts an add button on each card. Products with one variant go straight to the cart; products with options open quick view, or the product page when quick view is off.
+- **Quick view** opens a window with the gallery (including video and 3D), price, fit line, variant picker, buy button and Shop Pay Installments messaging, so shoppers can buy without leaving the collection. A line under the fit line shows the selected size's main measurements, such as *M · Waist 40, Thigh 33, Inseam 78 cm*.
+
+<img width="800" height="500" src="/images/docs/quick-view.png" alt="The quick view window: the product title and price, the fit line with a note comparing the size to the shopper's saved size, the measurements for the selected size, color and size pills and an Add to bag button beside the product images." />
+
+### Quick view opens on the picked size
+
+The fit line on a product card is a size picker. When a shopper drags it to a size, the card's links point at that size, and quick view opens with that size already selected. Inside quick view, the fit line works as it does on the product page: dragging it selects the size in the variant picker, and **See each size on me** takes the shopper's measurement. See [Drag the line to pick a size](/docs/fit-line/how-the-fit-line-works#drag-the-line-to-pick-a-size).
+
+<img width="400" height="370" src="/images/docs/card-fit-line.png" alt="Two product cards: each with its fit line under the image, the zone name and sizes in stock, and the line looser than last viewed or closer than last viewed." />
+
+## Recently viewed
+
+The **Recently viewed** section shows the products a shopper opened last, newest first. The history is saved in the shopper's browser, so it works without an account and stays on that device. Add the section to your product template so views are recorded, and to any other page where you want the strip. **Clear history** lets shoppers empty it.
+
+Choose a **Card style**:
+
+- **Line** — a single scrolling line of small thumbnails, each with its colorway band underneath. It takes little room at the bottom of a page.
+- **Product card (matches recommendations)** — full product cards with their fit lines, so the strip matches a **Product recommendations** section in the **Cards** layout.
+- **Compact row** — a square image, the name, the zone name and the price. The default product template uses this style.
+
+When a shopper has no history yet, the section shows a fallback under its own heading: recommendations for the current product on product pages, or the collection you pick elsewhere. Leave the collection empty to hide the section on other pages until there's a history.
+
+<img width="800" height="323" src="/images/docs/recently-viewed.png" alt="The Recently viewed section in the Compact style: a row of six square product images, each with its name, zone name and price, and a Clear history link on the right." />
+
+<SettingsTable section="recently-viewed" />

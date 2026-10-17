@@ -1,0 +1,52 @@
+---
+title: "Sections, blocks and templates"
+description: "How pages are built in QCut, and how to add, reorder, hide and reuse sections."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## The building blocks
+
+- **Templates** decide the layout of a page type: the home page, product pages, collection pages and so on. You can create alternate templates, for example a second product template for denim.
+- **Sections** are the full-width bands that make up a template: a fit hero, a featured collection, a newsletter.
+- **Blocks** are the pieces inside a section: a slide in a slideshow, a question in an FAQ, the fit line or the buy buttons on a product page.
+
+## Add a section
+
+1. In the theme editor, choose the page from the dropdown at the top.
+2. In the left sidebar, click **Add section** where you want it.
+3. Pick a section. Each one starts with sample content you can edit.
+
+
+Drag sections by their handle to reorder them. Click the eye icon to hide a section without deleting its settings.
+
+The fit sections — **Fit hero**, **Fit shop**, **Fit map**, **Fit compare** and **Size finder** — work on any page, as long as your products have the `custom.fit_position` metafield. See [Fit sections](/docs/fit-line/fit-sections).
+
+## Create an alternate template
+
+1. Open the page type from the top dropdown, then choose **Create template**.
+2. Name it — for example *denim* — and choose which template to base it on.
+3. Assign it in the admin: open the product, collection or page and choose the template under **Theme template**.
+
+QCut includes ready-made alternate templates you can assign straight away:
+
+| Template | Use it for |
+| --- | --- |
+| Product · editorial | Stacked images beside a sticky buy box, measurements on the first photo, and a fit map of the range |
+| Product · showcase | Hero products, with a larger gallery, a specs row and storytelling sections |
+| Product · library | Products that need every detail — care tabs, pickup, delivery estimate, trust badges and share |
+| Product · subscription | Products sold with selling plans |
+| Product · preorder | Products that ship later |
+| Product · bundle | Sets and multipacks |
+| Product · gift card | Your gift card product |
+| Collection · fit | A cover banner, a fit shop and the collection opened in its fit line view |
+| Page · fit guide | Your fit and sizing guide: the four zones, how to measure, your size chart and the size finder |
+| Page · story | An about page with an image banner and numbered steps |
+| Page · contact | The contact page |
+| Page · FAQ | A help center with topics and search |
+| Blog · list, Blog · sidebar | Alternative blog layouts |
+
+## Header and footer groups
+
+The header and footer are **section groups**. Besides the header itself you can add an announcement bar or a top bar above it, and pop-ups such as the newsletter popup or cookie banner to the footer group, so they appear on every page. The cart drawer and cart notification also live in the footer group.

@@ -1,0 +1,132 @@
+---
+title: "Theme settings"
+description: "Store-wide settings: favicon, color schemes, fonts, page width, product cards, shapes and sizes, the fit line, cart behavior, social media links and the three presets."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+Theme settings apply to every page. Open them from the theme editor by clicking the **paintbrush icon** in the left sidebar.
+
+## Presets
+
+QCut comes in three presets. Each one is a full set of theme settings plus its own home, product and collection templates, header and footer. Choose a preset when you add the theme from the Theme Store; after that, every setting below can be changed.
+
+| | QCut | Rivet | Drape |
+| --- | --- | --- | --- |
+| Made for | Menswear basics (demo brand Halden) | Raw denim and workwear | Womenswear |
+| Palette | Near-black text on stone, signal orange fit marker | Cream text on dark indigo, copper fit marker | Plum text on blush |
+| Heading font | Archivo Narrow, bold | Chivo, black | Fraunces |
+| Body font | Archivo | Chivo | Work Sans |
+| Measurements font | IBM Plex Mono | Azeret Mono | Work Sans, medium |
+| **Line style** / **Marker** | Ruler ticks / Pointer | Ruler ticks / Pointer | Plain line / Dot |
+| **Zone names** | Close, Regular, Relaxed, Oversized | Skinny, Slim, Straight, Relaxed | Close, Regular, Relaxed, Oversized |
+| **Second marker name** | Last season | Raw, before wash | Petite |
+| **On product cards** | Fit line | Fit line | Where it falls |
+| **Button shape** / **Button text** | Square / Uppercase | Square / Uppercase | Pill / Sentence case |
+| **Heading size** | 100% | 110% | 110% |
+| Header layout | Logo left, mega menu | Menu button on every screen | Logo on top, dropdown menu |
+| Footer layout | Fit line | Fit line | Newsletter, navigation and wordmark |
+
+All three open their home page with a **Fit hero**, followed by a **Fit shop**, a **Fit map** and the **Size finder** further down. Page width, product cards and cart settings are the same in each preset.
+
+## Logo and favicon
+
+Your logo is set in the **Header** section (and, optionally, the **Footer** section), so you can size it per layout. Without a logo image, both show a text wordmark. The favicon — the small icon in the browser tab — is set here.
+
+<SettingsTable global="Favicon" />
+
+## Colors
+
+QCut uses **color schemes**: named sets of background, text, border, button and accent colors. Every section has a **Color scheme** setting, so you can alternate light and dark bands down a page while keeping every color pairing accessible.
+
+Each scheme also has two fit line colors: **Fit marker** colors the marker that shows where a product sits, and **Second marker** colors the ghost marker for a compared cut or the fit after washing. Because they change per scheme, a fit line on a dark section can use a brighter marker than one on a light section.
+
+<SettingsTable global="Colors" />
+
+<Callout type="tip" title="Keep text readable">
+When you change a scheme, check the contrast between **Background** and **Text**, and between **Button** and **Button label**. Aim for a ratio of at least 4.5:1 for body text. Keep the **Fit marker** clearly visible against **Background** — it carries the most important information on the page.
+</Callout>
+
+## Typography
+
+Choose three fonts from Shopify's font library: one for headings, one for body text and one for measurements. The measurements font is used for sizes, measurement tables and the fit line labels, so a monospaced font keeps numbers lined up. Bold and italic styles load automatically.
+
+The defaults are **Archivo Narrow** (bold) for headings, **Archivo** for body text and **IBM Plex Mono** for measurements. Rivet and Drape use their own fonts — see [Presets](#presets). Use **Heading size** under **Shapes and sizes** to scale every heading at once.
+
+<SettingsTable global="Typography" />
+
+## Layout
+
+<SettingsTable global="Layout" />
+
+## Product cards
+
+These settings apply to every product card in the store — collection grids, featured collections, recommendations and search results. Whether cards show the fit line, and which sizes are in stock, is set under [Fit line](#fit-line).
+
+<SettingsTable global="Product cards" />
+
+## Shapes and sizes
+
+Shapes and sizes change the feel of every page at once: the style of the fit line, the shape and case of buttons, and the size of headings. The fit line stays visible in every combination.
+
+- **Line style** — draw the fit line as **Ruler ticks** or as a **Plain line**.
+- **Marker** — show where a product sits with a **Pointer** or a **Dot**.
+- **Size step** and **Fit filter** — see [Fit line](#fit-line) below.
+- **Button shape** — **Square**, **Soft corners** or **Pill**.
+- **Button text** — **Sentence case** or **Uppercase**.
+- **Heading size** — scales every heading from 80% to 120% of the default.
+
+<SettingsTable global="Shapes and sizes" />
+
+## Fit line
+
+The fit line reads each product's `custom.fit_position` metafield — a number from 0 (close) to 100 (oversized). Products without it show no line. For how shoppers use it, see [How the fit line works](/docs/fit-line/how-the-fit-line-works); the full list of fit metafields is in [Fit data](/docs/fit-line/fit-data).
+
+### Zones
+
+The line is split into four zones: positions 0–24 are **Close**, 25–49 **Regular**, 50–74 **Relaxed** and 75–100 **Oversized**. The zone name shows next to the line on the product page and in other places.
+
+To rename the zones store-wide, enter four names in **Zone names**, comma separated and in order from close to loose — for example `Skinny, Slim, Straight, Relaxed` for denim. Leave it empty to use the defaults. To rename the zone for one product only, use its `custom.fit_label` metafield.
+
+### Second marker
+
+When a product has a `custom.fit_secondary` metafield, the line shows a second, lighter marker — for a compared cut, last season's version or the fit after the first wash. **Second marker name** is the label shown beside it, such as *After first wash*.
+
+### Line style and marker
+
+**Line style** and **Marker** under **Shapes and sizes** set how every fit line is drawn: ruler ticks or a plain line, with a pointer or a dot.
+
+### Size step
+
+On the product page, shoppers can drag the fit line to pick a size. The line is drawn for one wearer — the shopper, from their own body measurement or the size they saved in the size finder, or else the model in the product's `custom.model_info` metafield, or else the middle size. Each size up or down moves the marker by the **Size step**, in points on the 0–100 line. The default is 8; set it to 0 to keep the marker fixed. A product's `custom.fit_size_step` metafield overrides it — for example a larger step for rigid cloth and a smaller one for stretch.
+
+### Fit filter
+
+**Fit filter** connects zone names to your collection filters. In the Shopify Search & Discovery app, add a product metafield filter on `custom.fit_zone` (single line text, with the values Close, Regular, Relaxed and Oversized, or your own zone names), then paste its filter parameter here — for example `filter.p.m.custom.fit_zone`. Zone names on the product page then link to products in the same zone, and the **Fit line** footer layout uses the same filter. Leave it empty to show plain zone names.
+
+<Callout type="note" title="Shop by fit in menus">
+The header has its own **Shop by fit** settings — a collection and a filter parameter — for the zone links in mega menus and the mobile menu. See [Header](/docs/header-and-footer/header#shop-by-fit).
+</Callout>
+
+### Product cards
+
+**On product cards** chooses what each card shows under the image: the **Fit line**, **Where it falls** (the length mode, which reads `custom.length_position` and `custom.length_falls` to show where a hem lands), or **None**. **Show sizes in stock on cards** lists the sizes that can still be bought.
+
+<SettingsTable global="Fit line" />
+
+## Cart
+
+<SettingsTable global="Cart" />
+
+## Subscriptions and currency
+
+<SettingsTable global="Subscriptions" />
+
+<SettingsTable global="Currency format" />
+
+## Social media
+
+Paste the full address of each profile. Icons appear wherever a section shows social media icons — the footer and the top bar.
+
+<SettingsTable global="Social media" />

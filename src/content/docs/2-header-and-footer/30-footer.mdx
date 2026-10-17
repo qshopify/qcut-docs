@@ -1,0 +1,46 @@
+---
+title: "Footer"
+description: "Four footer layouts including Fit line, footer menus, the signup form, the large wordmark, social media icons, Follow on Shop, payment icons and selectors."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+<img width="800" height="500" src="/images/docs/footer.png" alt="The footer in the newsletter layout (Drape): the brand line and social links, Shop, Help and Explore menu columns, a bottom bar with payment icons and Back to top, and a large wordmark at the bottom edge." />
+
+## Layouts
+
+- **Newsletter, navigation and wordmark** — a signup band with your brand line, menu columns underneath, and a sliver of a large wordmark at the bottom edge.
+- **Minimal, centered** — your mark, one row of links, the copyright line and social media icons.
+- **Brand and four navigation columns** — a classic footer with your logo and text, up to four menu columns, and a bottom bar with payment icons and selectors.
+- **Fit line** — the fit line as the footer: a large signup line, a *Shop by fit* ruler, your menu columns, the bottom bar and the wordmark across the full width of the page.
+
+## The Fit line layout
+
+In the **Fit line** layout, the four fit zones run along a ruler as large links — *Close*, *Regular*, *Relaxed* and *Oversized*, or the names you set in **Theme settings > Fit line > Zone names**. Each link opens the **Fit collection** filtered to that zone. Leave **Fit collection** empty to link to all products.
+
+The zone filter comes from **Fit filter** in **Theme settings > Shapes and sizes**. Without it, each link opens the collection unfiltered. See [Fit filter](/docs/getting-started/theme-settings#fit-filter).
+
+<img width="800" height="500" src="/images/docs/footer-fit.png" alt="The footer in the Fit line layout: a large signup line with an email field, Shop by fit with Close, Regular, Relaxed and Oversized as large links along a ruler, then the brand and menu columns." />
+
+## Wordmark
+
+Turn on **Show large wordmark** to set your store name in large type across the footer. **Wordmark text** changes what it says — for example a shorter brand name. **Logo image** and **Logo width** set the smaller mark in the brand area; without an image, the store name is shown.
+
+## Footer menus
+
+Add a **Footer menu** block for each column and choose a menu. Menus with more than seven links are shown as a compact inline index so the footer stays short. Use a **Links** block for a hand-picked column without creating a menu, or a **Text** block for an address or opening hours.
+
+## Signup form
+
+The footer signup adds subscribers to your Shopify customer list with email marketing consent. If a page already has a **Newsletter** section, the footer form hides itself on that page so shoppers never see two signup forms at once.
+
+## Colorway rule
+
+Choose a **Colorway rule collection** to draw a thin band above the footer, with one segment per product of the collection (up to 16) in that product's color — its `custom.color` metafield, else its first color swatch, else the color scheme's **Fit marker** color. Leave it empty to hide the rule.
+
+## Follow on Shop
+
+**Show Follow on Shop** adds Shopify's Follow button, so customers can follow your store in the Shop app. It appears when Shop Pay is active on your store.
+
+<SettingsTable section="footer" />

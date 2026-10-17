@@ -1,0 +1,49 @@
+---
+title: "Product details from metafields and tags"
+description: "Subtitles, card labels, colors, set contents, ratings, badges and swatches — filled from your product, collection, article and page data, not from theme settings."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+QCut reads a few optional product fields so that the same information shows consistently on cards and product pages. Add them in **Settings > Custom data > Products** as metafield definitions, in the `custom` namespace, then fill them in on each product. Anything you leave empty simply hides.
+
+The fit line and the measurement tables have their own metafields. See [Fit data](/docs/fit-line/fit-data).
+
+## Product metafields
+
+| Metafield | Type | Where it shows |
+| --- | --- | --- |
+| `custom.subtitle` | Single line text | A short line under the product title on cards, product rows and the collection **Fit line** view — for example *Washed twill · Stone*. On the product page, connect the **Title** block's **Subheading** to it. |
+| `custom.kicker` | Single line text | A small label at the top-left of the product card, for example *Cut 02*. It also starts the eyebrow above the title on the product page and in quick view, followed by the product type, when the **Text** block in **Eyebrow** style is left empty. |
+| `custom.color` | Color | The product's color: the colorway band on cards and in the **Line** style of **Recently viewed** when the product has no color swatches |
+| `custom.contents` | List of products | What's inside a set or bundle: the **What's inside** block on the product page lists these products |
+| `reviews.rating` | Rating | Stars on cards, in quick view and in the product page's **Rating** block. Review apps fill this automatically. |
+
+<Callout type="tip" title="Connect a metafield to a block">
+Many block settings, such as the **Collapsible tab** block's **Content** or the **Pairs with** block's **Product**, can read a metafield instead of fixed text. In the theme editor, select the setting's **Connect dynamic source** icon and pick the metafield. Each product then shows its own value, and the block hides on products where it's empty.
+</Callout>
+
+## Collection, article and page metafields
+
+| Owner | Metafield | Type | Where it shows |
+| --- | --- | --- | --- |
+| Collection | `custom.color` | Color | The collection's color in collection bands, filter chips, menu tiles and the **Collection banner** |
+| Article | `custom.product` | Product, or List of products | The product the article is about: the **In this article** list on the article page, and the product tag in the blog list |
+| Page | `custom.intro` | Multi-line text | A short intro under the page title. It replaces the section's **Intro** setting on that page only. |
+
+Create collection metafields in **Settings > Custom data > Collections**, article metafields in **Settings > Custom data > Blog posts** and page metafields in **Settings > Custom data > Pages**.
+
+## Badges
+
+Add a product tag that starts with `badge:` to show a badge on its card — for example `badge:Bestseller` or `badge:New`. Sale and sold-out badges appear automatically when a product has a compare-at price or is out of stock.
+
+## Color swatches
+
+Swatches come from Shopify's own color swatches. In the product's options, link a color option to the **Color** category metafield, or set a swatch color or image for each value. The variant picker shows them on the product page. Turn on **Show color swatches** under **Theme settings > Product cards** to show them on cards too.
+
+The same swatches draw the product's colorway band, one stripe per color. Without swatches, the band uses `custom.color`, then the color scheme's **Fit marker** color.
+
+## Sizes
+
+QCut finds a product's size option by its name: *Size*, *Waist*, *Taille*, *Größe* or *Talla*. Use one of these names so the sizes in stock show on cards, the fit line works as a size picker and shoppers can change size in the cart. The values must match the row keys of `custom.measurements`. See [Fit data](/docs/fit-line/fit-data#checklist-for-a-new-product).

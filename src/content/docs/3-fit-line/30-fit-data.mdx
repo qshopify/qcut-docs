@@ -1,0 +1,117 @@
+---
+title: "Fit data"
+description: "The product metafields behind the fit line and measurement tables, the model line, the fit filter, and a checklist for each new product."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+QCut keeps product copy out of the theme. The fit line, the measurement tables and the model line all read product metafields, so each product carries its own fit and every page shows the same information. Anything you leave empty simply hides.
+
+Create the definitions in **Settings > Custom data > Products**, in the `custom` namespace, then fill them in on each product. To create one, select **Add definition**, enter the name, check that the **Namespace and key** matches the table below, choose the type and save.
+
+ Custom data > Products: Fit position, Fit size step, Fit secondary, Fit label, Fit note, Measurements, Model info and Fit tip." />
+
+## Product metafields
+
+| Metafield | Type | What it drives | Example |
+| --- | --- | --- | --- |
+| `custom.fit_position` | Integer, 0–100 | The fit line everywhere. Required: without it, the product shows no line. | `62` (relaxed) |
+| `custom.fit_size_step` | Integer, 0–25 | How far the marker moves per size on this product. Overrides **Size step** in Theme settings. | `12` for rigid denim, `5` for stretch |
+| `custom.fit_secondary` | Integer, 0–100 | A second, lighter marker, named by **Second marker name** | `48` (the earlier cut, or raw before the first wash) |
+| `custom.fit_label` | Single line text | Replaces the zone name for this product | `Relaxed thigh` |
+| `custom.fit_note` | Single line text | One line beside the zone name | `Relaxed thigh, tapered below the knee` |
+| `custom.length_position` | Integer, 0–100 | The **Where it falls** mode, from shoulder (0) to ankle (100) | `78` |
+| `custom.length_falls` | Single line text | The label in the **Where it falls** mode | `mid-calf` |
+| `custom.measurements` | JSON | The measurement tables, the size guide drawer, the measurements on the first photo, **Fit compare** and the shopper's measurement input | See [Measurements](#measurements) |
+| `custom.model_info` | Single line text | The model line under the fit line, and the model's size for the size picker | `Model 178 cm, wears M` |
+| `custom.fit_tip` | Single line text | One line of advice under the tables | `Between sizes? Take the smaller one.` |
+
+### Fit position
+
+`custom.fit_position` is how the piece sits on someone wearing **their own size**, from 0 (close) to 100 (oversized). The four zones are 0–24, 25–49, 50–74 and 75–100. See [Zones](/docs/fit-line/how-the-fit-line-works#zones).
+
+Set the positions relative to each other rather than in isolation: a store's slimmest trouser might be 15 and its widest 85. Laying out the whole range on a [Fit map](/docs/fit-line/fit-sections#fit-map) is a quick way to check that the order looks right.
+
+## Measurements
+
+`custom.measurements` is a JSON metafield with up to two tables:
+
+- **garment** — the flat measurements of the piece in each size.
+- **body** — the body measurements each size fits, as ranges.
+
+```json
+{
+  "unit": "cm",
+  "garment": {
+    "columns": ["Waist", "Thigh", "Hem", "Inseam"],
+    "rows": { "S": [38, 31, 23, 76], "M": [40, 33, 24, 78], "L": [42, 35, 25, 80] }
+  },
+  "body": {
+    "columns": ["Waist", "Hip"],
+    "rows": { "S": ["70–74", "90–94"], "M": ["74–78", "94–98"], "L": ["78–82", "98–102"] }
+  }
+}
+```
+
+- **unit** — printed with the measurements. Leave it out for `cm`.
+- **columns** — the column headings, in order.
+- **rows** — one row per size. The keys must match the product's **Size** option values exactly, such as `S`, `M` and `L`, or `30`, `32` and `34` for waist sizes. Each row has one value per column.
+
+On the product page, a switch shows either table, and the selected variant's row is highlighted. The shopper's saved size is marked on every product. The first four garment columns of the selected size also appear on the first product photo when **Show measurements on the first photo** is on.
+
+<img width="360" height="60" src="/images/docs/product-measurements.png" alt="Flat measurements as small chips over the first product photo — waist, thigh, hem and inseam — with the caption Measured flat, size XS." />
+
+The **first column of the body table** is the measurement shoppers can enter under the fit line with **See each size on me**, such as their waist. Write body values as ranges, like `74–78`, or as single numbers. When a shopper's measurement falls between two ranges, the fit line is drawn between those two sizes.
+
+<Callout type="tip" title="Check your JSON">
+Shopify won't save a JSON metafield with a syntax error, such as a missing comma or a curly quote. If the tables don't show, check that each row has as many values as there are columns and that the row keys match the **Size** option values, including capitals.
+</Callout>
+
+## Model line
+
+`custom.model_info` prints under the fit line on the product page and in the fit hero. Write it in this format:
+
+```
+Model 178 cm, wears M
+```
+
+QCut reads the size after *wears* and before the next comma or space. When that size is one of the product's **Size** option values, the fit line is drawn on the model until the shopper enters their own measurement or size. Keep *wears* in English and the size spelled exactly as in the **Size** option, for example `Model 185 cm, wears 32`.
+
+## Fit filter
+
+Let shoppers filter collections by fit zone, drawn as zones on a ruler instead of a plain list of checkboxes.
+
+1. In **Settings > Custom data > Products**, add a **Single line text** definition `custom.fit_zone`.
+2. On each product, fill it in with the zone that matches its fit position: **Close**, **Regular**, **Relaxed** or **Oversized**.
+3. In the **Search & Discovery** app, open **Filters**, select **Add filter** and add the **Fit zone** product metafield.
+4. In the theme editor, open **Theme settings > Shapes and sizes** and enter the filter's parameter in **Fit filter**: `filter.p.m.custom.fit_zone`.
+
+QCut draws any list filter whose parameter names a fit metafield, such as `filter.p.m.custom.fit_zone`, as zones on a ruler. With **Fit filter** set, the zone names under the fit line on product pages link to all products in that zone, and the footer's *Shop by fit* line links to the same filter.
+
+To add *Shop by fit* links to your menus, pick a **Collection** and enter the same **Filter parameter** in the **Header** section. See [Header](/docs/header-and-footer/header).
+
+<Callout type="note" title="Keep the default values">
+Use the values Close, Regular, Relaxed and Oversized, even if you renamed the zones. Every *Shop by fit* link — on the product page, in the header menus and in the footer — shows your **Zone names** but filters by these four values.
+</Callout>
+
+`custom.fit_zone` is filled in by hand: it isn't calculated from `custom.fit_position`. When you change a product's fit position across a zone boundary, update its fit zone too.
+
+## Collection metafields
+
+| Metafield | Type | What it drives |
+| --- | --- | --- |
+| `custom.color` | Color | The collection's color in collection bands, filter chips and the collection banner |
+
+Create it in **Settings > Custom data > Collections**. Other product details, such as the subtitle and badges, are on [Product details from metafields and tags](/docs/products/product-data).
+
+## Checklist for a new product
+
+1. Give the product a **Size** option. Options named *Size*, *Waist*, *Taille*, *Größe* or *Talla* are recognized.
+2. Fill in `custom.fit_position` from 0 to 100.
+3. Add `custom.measurements` with a garment table and, ideally, a body table, with one row per size value.
+4. Add `custom.model_info`, such as *Model 178 cm, wears M*.
+5. Optional: `custom.fit_note`, `custom.fit_tip`, and `custom.fit_size_step` if the fabric is very rigid or very stretchy.
+6. Optional: `custom.fit_secondary` for a second marker, and `custom.length_position` with `custom.length_falls` for dresses, skirts and coats.
+7. If you use the fit filter, fill in `custom.fit_zone` to match the fit position.
+8. Open the product page and drag the fit line through every size to check the result.

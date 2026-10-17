@@ -1,0 +1,41 @@
+---
+title: "Product templates"
+description: "Ready-made product templates — default, editorial, showcase, subscription, pre-order, bundle, gift card and the full block library — and how to assign them."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+QCut ships several product templates. Each one is the same **Product information** section with a different set of blocks and settings, followed by its own sections. Assign one in your admin: open a product, find **Theme template** in the right column, choose the template and save.
+
+
+| Template | What changes |
+| --- | --- |
+| **Default product** | The **Thumbnails on the side** gallery with measurements on the first photo, and the **Fit and measurements** block above the variant picker, with its tables in a size guide drawer. Below: a **Fit map**, **Product recommendations** and **Recently viewed**. |
+| **editorial** | Images stacked in a two-column grid beside a sticky buy box, for pieces with a lot of photography. Adds an image with text story section before the fit map, recommendations and recently viewed. |
+| **showcase** | A lead image with three below, and storytelling sections underneath — specs, how it's made, a feature band and an FAQ. Use it for a signature product. |
+| **subscription** | Shows the product's selling plans, a *how it works* band and an FAQ. The product needs a subscription app that creates selling plans. |
+| **preorder** | A *Pre-order · ships in November* label above the title, perks such as *Charged when it ships*, a *When will it ship?* tab and a *What happens next* timeline. Set the button label yourself, as below. |
+| **bundle** | Shows what's inside the set, with a **Pairs with** add-on. |
+| **gift-card** | The **Gift card recipient** form and a landscape gallery. Use it for your gift card product. |
+| **library** | Every buy box block in one template — pickup, delivery estimate, trust badges, share, collapsible tabs and more — so you can try each one and copy what you need. |
+
+<img width="800" height="500" src="/images/docs/product-editorial.png" alt="A product page with the editorial template: a large product image on the left, and the buy box on the right with the title, sale price, fit line, model's size, a fit tip and the size and color pickers." />
+
+The **Fit and measurements** block is in the default and editorial templates. To add the fit line to another template, open it in the theme editor and add the block to **Product information**. See [Fit and measurements](/docs/products/product-page#fit-and-measurements).
+
+## Create your own template
+
+In the theme editor, open the template picker at the top, choose **Products** and select **Create template**. Base it on the template closest to what you want, then change its blocks and sections. Assign it to products from their **Theme template** setting, as above.
+
+## Subscriptions
+
+When a product has selling plans, the buy box shows a one-time / subscribe choice and the plan's price. **Pre-select the first subscription plan** in **Theme settings > Subscriptions** makes subscribing the default. The chosen plan appears on the cart line.
+
+## Pre-orders
+
+In the **preorder** template, open the **Buy buttons** block and set **Button label override**, such as *Pre-order*, and **Note under the button** for the expected ship date. Edit the label above the title, a **Text** block, to match. Connect the note to a product metafield to give each product its own date.
+
+## Gift cards
+
+Create a gift card product in **Products > Gift cards**, assign the **gift-card** template, and keep the **Gift card recipient** block if you want shoppers to send it to someone. After purchase, the recipient receives an email with a link to your store's gift card page, which shows the code, a QR code and an *Add to Apple Wallet* button.

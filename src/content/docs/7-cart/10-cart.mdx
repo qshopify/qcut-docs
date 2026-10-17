@@ -1,0 +1,64 @@
+---
+title: "Cart drawer, cart page and notifications"
+description: "Choose what happens after add to cart, let shoppers change size in the bag, set a free shipping goal, offer upsells and gift notes, and show accelerated checkout."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## What happens after add to cart
+
+In **Theme settings > Cart**, set **After adding to cart**:
+
+- **Open the cart drawer** — a panel slides in with the bag, a free shipping meter and upsells.
+- **Go to the cart page** — classic behavior.
+- **Show a notification** — a small confirmation under the header, so shoppers keep browsing.
+
+Every add to cart shows a loading state on the button and a confirmation, so shoppers always know it worked.
+
+## Changing size in the bag
+
+In the cart drawer and on the cart page, a line's size is a dropdown. When a shopper picks another size, QCut swaps the line for that size in the same color and other options, with the same quantity. Sold-out sizes are listed but can't be chosen.
+
+This works for products whose size option is named *Size* or *Waist* (or *Taille*, *Größe* or *Talla*). Other options, such as color, are shown as text.
+
+## Fit line in cart lines
+
+Each line can show the product's fit line under its options — **Show each product's fit line** in the cart drawer, **Show fit lines** on the cart page. Shoppers can drag the marker along the line, or use the arrow keys, to see how another size would sit; letting go picks that size and swaps the line, just like the size dropdown.
+
+The fit line needs the product's `custom.fit_position` metafield and a size option. Products without them show no line. See [Product data](/docs/products/product-data).
+
+## Free shipping goal
+
+Set **Free shipping threshold** in **Theme settings > Cart** (in your store's currency); 0 hides the meter. The drawer shows how much is left until free shipping. Add a **Second milestone amount** and **Second milestone reward** in the cart drawer section — for example free hemming at a higher amount.
+
+**Free shipping progress** draws the meter as a **Ruler** — a measuring tape filling toward the goal — or a classic **Bar**. The meter shows only when the shopper is paying in your store's own currency.
+
+<Callout type="note" title="The meter doesn't change shipping rates">
+The meter is a message. Set up the matching free shipping rate in **Settings > Shipping and delivery**.
+</Callout>
+
+## Cart drawer
+
+The drawer lists the bag, then up to two upsell products that aren't already in it, an optional gift note and the order total with checkout. Choose the upsells in **Products** under **Upsells**. **Show gift note** adds a field for a note, saved as the order note. When the bag is empty, the drawer shows your **Empty bag** text and a button.
+
+<img width="800" height="500" src="/images/docs/cart-drawer.png" alt="The cart drawer open beside a search page: a free shipping ruler, then two lines, each with a size dropdown and a fit line comparing the size to the shopper's own, and the subtotal with a Checkout button." />
+
+<SettingsTable section="cart-drawer" />
+
+## Cart page
+
+The cart page lists each item with its image, options, selling plan, discounts and unit price, plus quantity controls. It supports discount codes, automatic discounts and accelerated checkout buttons. Order notes appear when **Enable order notes** is on in **Theme settings > Cart**.
+
+Add an **Extra summary line** — for example *Hemming* with the value *Free* — to show one more line in the order summary. It's a message only and doesn't change the total.
+
+<img width="800" height="450" src="/images/docs/main-cart.png" alt="The cart page: two lines, each with its fit line, color and size dropdown, quantity and total, and the Summary panel with a discount code field, a Hemming row and Checkout." />
+
+<SettingsTable section="main-cart" />
+
+## Cart notification
+
+Shows after an add to cart when **After adding to cart** is **Show a notification**. Choose a **Style**: **Colorway toast** is a small notice with a band for each of the product's colors, its image and name and a link to the bag. **Classic** shows the line just added, with *View bag*, checkout and *Continue shopping*. Set how long it stays with **Close after**; the countdown pauses while the shopper hovers over it.
+
+
+<SettingsTable section="cart-notification" />

@@ -1,0 +1,93 @@
+---
+title: "Product page"
+description: "The product information section: gallery layouts, measurements on the first photo, the Fit and measurements block with its size guide, and every other block in the buy box."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+The product page is built from the **Product information** section. Everything in the buy box — title, price, fit line, variant picker, buy buttons, description — is a separate block, so you can reorder, remove or repeat them.
+
+<img width="800" height="470" src="/images/docs/main-product.png" alt="The product page: thumbnails beside the main image with flat measurements over it, and the buy box with the title, price, fit line, a See each size on me link, the model's size, a fit tip and the size picker with its Size guide link." />
+
+## Gallery
+
+All product media shows in the gallery: images, Shopify-hosted videos, YouTube and Vimeo videos and 3D models (with *View in your space* on supported phones). When a shopper picks a variant that has its own image, the gallery jumps to it. On phones, shoppers swipe through the media.
+
+Choose a **Desktop gallery** layout:
+
+- **Thumbnails on the side** — a column of thumbnails to the left of the main image. The default product template uses it.
+- **Thumbnails below** — a row of thumbnails under the main image.
+- **Stacked grid** — every image at once, in a two-column grid. The buy box stays in view while shoppers scroll.
+- **Lead image, three below** — one large image, then the rest in a row of three.
+
+With **Thumbnails on the side** and **Thumbnails below**, the whole gallery sticks under the header on desktop while the product details scroll, and the main image is sized to fit the screen so it stays in view. With **Thumbnails on the side**, the thumbnail column is exactly as tall as the main image: when there are more thumbnails than fit, arrows above and below page through them, and the current thumbnail is kept in view.
+
+<img width="450" height="440" src="/images/docs/product-gallery.png" alt="The gallery with thumbnails on the side: a column of three thumbnails beside the main image, with the flat measurements of the selected size along its bottom edge." />
+
+Choose a **Media shape** for the frame, and **Media fit**: **Fill** crops images to the frame, **Fit** shows them whole. Images of different shapes are fitted into the same frame, so a mixed set never breaks the layout.
+
+### Measurements on the first photo
+
+With **Show measurements on the first photo** on, the first image shows the selected size's flat measurements as small chips, such as *waist 40* and *inseam 78*, with *Measured flat · size M* under them. They change when the shopper picks another size. The values come from the garment table of the product's `custom.measurements` metafield, up to four columns. Without a row for the selected size, nothing shows. See [Measurements](/docs/fit-line/fit-data#measurements).
+
+<img width="360" height="60" src="/images/docs/product-measurements.png" alt="Flat measurements as small chips over the first product photo — waist, thigh, hem and inseam — with the caption Measured flat, size XS." />
+
+Turn on **Sticky add-to-cart bar** to keep the product title, price and buy button in reach while shoppers scroll; it stops at the footer.
+
+<SettingsTable section="main-product" showBlocks={false} />
+
+## Fit and measurements
+
+The **Fit and measurements** block is the heart of a QCut product page. It shows, from the product's [fit metafields](/docs/fit-line/fit-data):
+
+- the [fit line](/docs/fit-line/how-the-fit-line-works), with the zone name and the product's fit note,
+- a line saying who the line is drawn for, with **See each size on me** for the shopper's own measurement,
+- the model line, such as *Model 178 cm, wears M*,
+- the measurement tables, with a switch between garment and body measurements and the selected size highlighted,
+- the fit tip, such as *Between sizes? Take the smaller one.*
+
+Shoppers can drag the fit line to pick a size: the size is selected in the variant picker, so the price and buy button follow. See [Drag the line to pick a size](/docs/fit-line/how-the-fit-line-works#drag-the-line-to-pick-a-size).
+
+<img width="340" height="240" src="/images/docs/fit-dial.png" alt="The fit line after the shopper entered a waist measurement: the marker in Oversized over size L, the note Oversized · your size, Shown on your 84 cm waist with a Change link, and Your size: L." />
+
+**Show** chooses **Fit line** or **Where it falls**, the length mode for dresses, skirts and coats.
+
+**Measurement tables** chooses where the tables go:
+
+- **In a size guide drawer** — the default. A **Size guide** link sits next to the **Size** option in the variant picker and opens the tables in a drawer. The fit tip and the shopper's saved size stay in the block, under the fit line. This keeps the buy box short.
+- **Under the fit line** — the tables show in the block itself.
+
+Pick a **Size guide page** to add a link to your full fit guide, such as a page with the **fit-guide** template. It appears in the drawer as *Full fit guide*, or under the tables as *Size guide*.
+
+<img width="800" height="500" src="/images/docs/size-guide-drawer.png" alt="The Size guide drawer open beside a product page: the product name and model line, a Garment, cm / Fits body, cm switch, and the measurement table with the selected size L outlined." />
+
+<SettingsTable section="main-product" block="fit" />
+
+<Callout type="note" title="When the block is empty">
+The block hides each part that has no data. A product without `custom.fit_position` shows no fit line, and one without `custom.measurements` shows no tables and no **Size guide** link.
+</Callout>
+
+## Buy box blocks
+
+- **Title** and **Price** — the title can show a **Subheading**; connect it to `custom.subtitle` for per-product copy. The price shows compare-at prices, unit prices and a *tax included* note when your store shows prices with tax.
+- **Variant picker** — **Pills** or a **Dropdown**. Colors show as swatches from your product's color swatches. Sold-out combinations stay visible but are marked.
+- **Buy buttons** — quantity, add to cart, accelerated checkout buttons (on by default), and Shop Pay Installments messaging. Use **Button label override** and **Note under the button** for pre-orders.
+- **Inventory status** — shows a low-stock message when the real inventory is at or under your **Low stock threshold**.
+- **Pickup availability** — shows whether the selected variant can be picked up at your locations, with a link to all stores. Requires local pickup in **Settings > Shipping and delivery**.
+- **Delivery estimate** — an estimated delivery window from your own cut-off time and business days.
+- **Delivery and perks** — up to four short lines, such as free returns, as tiles, a stacked list or one row.
+- **Gift card recipient** — lets shoppers send a gift card to someone else by email, with a message and send date. Shown on gift card products only.
+- **Rating** — the product's `reviews.rating`, filled by review apps.
+- **Collapsible tab**, **Pairs with**, **What's inside**, **Trust badges**, **Share**, **Text**, **Breadcrumbs**, **Vendor** and **SKU** — supporting details. Each one hides itself when it has nothing to show.
+- **Custom liquid** and **app blocks** — add review stars or other app features exactly where you want them.
+
+## Block settings
+
+<SettingsTable section="main-product" block="buy_buttons" />
+<SettingsTable section="main-product" block="collapsible" />
+
+Connect **Content** to a product metafield for per-product care or fabric details, or pick a **Page content** to share one text, such as your returns policy, across products.
+
+<SettingsTable section="main-product" block="pickup" />
+<SettingsTable section="main-product" block="delivery" />

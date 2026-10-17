@@ -1,0 +1,114 @@
+---
+title: "How the fit line works"
+description: "QCut's fit line: one line from close to oversized, its four zones, where it appears, and how shoppers drag it to pick a size."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+The fit line is QCut's signature. Every product sits on one horizontal line that runs from close to oversized, so shoppers can compare how two pieces sit before either arrives. A marker shows where the product falls, and the zone name, such as *Relaxed*, is printed above it.
+
+The line is drawn from product metafields, not from theme settings. A product shows a line only when its `custom.fit_position` metafield has a value from 0 (close) to 100 (oversized). Products without it simply show no line. See [Fit data](/docs/fit-line/fit-data) to set it up.
+
+<img width="340" height="180" src="/images/docs/fit-line.png" alt="The Fit and measurements block: the fit line from Close to Oversized with the marker over size XS in the Relaxed zone, the note Relaxed · XS on our model (S), and a See each size on me link." />
+
+## Zones
+
+The line is split into four zones:
+
+| Position | Zone |
+| --- | --- |
+| 0–24 | Close |
+| 25–49 | Regular |
+| 50–74 | Relaxed |
+| 75–100 | Oversized |
+
+Rename the zones for your whole store with **Zone names** in **Theme settings > Fit line**: four names, separated by commas, from close to loose. For example, a denim store might use *Skinny, Slim, Straight, Relaxed*. To rename the zone on one product only, fill in its `custom.fit_label` metafield.
+
+## Two modes: fit and length
+
+- **Fit line** — how loose the piece is, from close to oversized. This is the default everywhere.
+- **Where it falls** — the length mode, which shows where a hem lands on the body, from shoulder to ankle. It reads `custom.length_position` and the label in `custom.length_falls`, such as *mid-calf*. Use it for dresses, skirts and coats.
+
+Choose the mode for product cards with **On product cards** in **Theme settings > Fit line**, and for the product page with **Show** in the **Fit and measurements** block.
+
+## Second marker
+
+When a product has a `custom.fit_secondary` metafield, a lighter second marker is drawn on the same line. Use it to compare the product with an earlier cut, or to show how a raw denim fits after its first wash. Name it with **Second marker name** in **Theme settings > Fit line**, for example *After first wash*. Cart lines never show the second marker.
+
+## Where the fit line appears
+
+- **Product page** — the **Fit and measurements** block, with the measurement tables, model line and fit tip. See [Product page](/docs/products/product-page#fit-and-measurements).
+- **Product cards** — under the image, with the zone name and the sizes in stock. Turn it off or switch to the length mode with **On product cards**.
+- **Quick view** — beside the buy button.
+- **Cart and cart drawer** — on each line, when **Show fit lines** is on in the cart page section and **Show each product's fit line** is on in the cart drawer. Dragging the line changes the size of that line in the bag. See [Cart](/docs/cart/cart).
+- **Featured product** — under the product title.
+- **Fit hero**, **Fit map**, **Fit shop** and **Fit compare** — sections built around the line. See [Fit sections](/docs/fit-line/fit-sections).
+- **Collection pages** — the **Fit line** view lists every product on the line with its name and price. See [Collection pages](/docs/collections-and-search/collection-pages).
+- **Recently viewed** — the **Product card** style shows each card's fit line, and the **Compact row** style shows the zone name. See [Recently viewed](/docs/products/recommendations-and-quick-view#recently-viewed).
+
+## Drag the line to pick a size
+
+On the product page, in quick view, in the featured product, in the fit hero, on product cards and on cart lines, the fit line is also a size picker. The shopper drags the marker along the line, or focuses it and uses the arrow keys, and the marker snaps to the size whose fit lands there. The size names are shown under the line, except on product cards, where the card's zone text changes to the zone and size, such as *Relaxed · L*.
+
+<img width="340" height="240" src="/images/docs/fit-dial.png" alt="The fit line after the shopper entered a waist measurement: the marker in Oversized over size L, the note Oversized · your size, Shown on your 84 cm waist with a Change link, and Your size: L." />
+
+What happens when a size is picked depends on where the line is:
+
+- **Product page, quick view and featured product** — the size is selected in the variant picker, so the price, stock and buy button update.
+- **Product cards and fit hero** — the product link points at the picked size, and the card's quick view opens on that size.
+- **Cart and cart drawer** — the line is swapped for the same product in the new size, with the same quantity.
+
+The note next to the line tells the shopper what they are looking at, for example *Relaxed · one size up from your M*. When they drag past the smallest or largest size, the note says so instead: *XS is the closest this cut goes*, or *XL is the loosest this cut goes*.
+
+### Who the line is drawn for
+
+`custom.fit_position` is how the piece sits on someone wearing **their own size**. To show the other sizes, the theme needs a wearer to measure from, the reference. It uses the first of these that it knows:
+
+1. **The shopper's measurement** — a body measurement they typed in on the product page. It can fall between two sizes.
+2. **The shopper's saved size** — from the [Size finder](/docs/fit-line/fit-sections#size-finder) section, or from an earlier measurement.
+3. **The model's size** — read from the end of `custom.model_info`, such as *Model 178 cm, wears M*.
+4. **The middle size** of the product's sizes.
+
+The line on the reference size sits exactly at `custom.fit_position`. Every size away from it moves the marker by the size step, so a size up sits further toward oversized and a size down further toward close.
+
+A line under the fit line on the product page says who it's drawn for, for example *Shown on our model, who wears M* or *Shown on a size M body*. Once the shopper has a saved size or measurement, a faint *Your size* marker stays at their size while they drag to others.
+
+### Measurement input
+
+On the product page, **See each size on me** opens a one-field form under the line. The shopper types one body measurement, such as their waist, and the line is redrawn for them: *Shown on your 76 cm waist*. If the measurement falls outside the product's sizes, the line says so. **Change** edits the measurement and **Clear** removes it.
+
+The field is the first column of the product's body table in `custom.measurements`. Without a body table, the form doesn't show. See [Measurements](/docs/fit-line/fit-data#measurements).
+
+### The remembered fit profile
+
+The shopper's measurement and saved size are stored in their browser, so they follow the shopper to every product page, quick view and cart on the same device. Nothing is sent to your store, and nothing is shared between devices. The saved size also marks the matching row in every measurement table.
+
+<Callout type="note" title="When the line doesn't move">
+A product's line is a size picker only when the product has a fit position, a **Size** option with at least two values, and a size step above 0. Options named *Size*, *Waist*, *Taille*, *Größe* or *Talla* are recognized. Otherwise the line stays where it is and shows only the fit.
+</Callout>
+
+## Size step
+
+The size step is how many points the marker moves per size. Set it for the store with **Size step** in **Theme settings > Shapes and sizes**, from 0 to 20 (8 by default). Set **Size step** to 0 to keep the marker fixed on every product.
+
+Fabrics change how much a size matters, so you can set a step per product with `custom.fit_size_step`. For example, use 12 for rigid denim, where one size changes the fit a lot, and 5 for stretch jersey.
+
+## Compared to last viewed
+
+When a shopper opens a product page, QCut remembers that product's fit. Every other product card then says how it compares, for example *looser than last viewed* or *same fit as last viewed*, with the product's name when you hover. Plain fit lines, such as those in the collection **Fit line** view, also draw a thin rule at the last viewed product's fit. The product itself shows no comparison.
+
+The [Fit shop](/docs/fit-line/fit-sections#fit-shop) section can start at the same fit, with **Start at the last product viewed**.
+
+## Line style
+
+Two settings in **Theme settings > Shapes and sizes** change how every fit line looks:
+
+- **Line style** — **Ruler ticks** or **Plain line**.
+- **Marker** — **Pointer** or **Dot**.
+
+The marker colors come from the **Fit marker** and **Second marker** roles of each color scheme in **Theme settings > Colors**.
+
+## Theme settings
+
+<SettingsTable global="Fit line" />

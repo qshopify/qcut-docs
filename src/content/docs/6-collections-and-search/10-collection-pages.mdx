@@ -1,0 +1,83 @@
+---
+title: "Collection pages"
+description: "Collection banner layouts, the product grid and its Fit line view, filters including the fit filter, the fit collection template and the all-collections page."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+A collection page has two main sections: the **Collection banner** at the top and the **Product grid** below it.
+
+## Collection banner
+
+Shows the collection title, description and product count. Choose a **Layout**:
+
+- **Band** — a block of color beside a large title, with the description and product count at the far edge of the band. The color is **Band color**; when that's blank, it's the collection's `custom.color` metafield, or else a color from the section's color scheme. Band is the layout of the default collection template.
+- **Classic** — breadcrumbs, a large title and description, and **Collection pills navigation**: a row of links beside the heading — for example cuts or categories — with the current one highlighted.
+- **Cover image** — a full-width image with the title, description and product count over a soft shade. Set how tall it is with **Cover height**: **Small**, **Medium** or **Large**.
+
+The cover image is the section's **Image override**, or else the collection image, or else the image of the collection's first product — so a collection without its own artwork still gets a cover. With the Band and Classic layouts, turn on **Show collection image** to show the image below the copy.
+
+<img width="800" height="288" src="/images/docs/collection-banner.png" alt="A collection page opening with the Cover layout: a full-width photo with breadcrumbs at the top, and the collection title, description and product count over it." />
+
+<SettingsTable section="collection-banner" />
+
+## Product grid
+
+- **Filtering** uses Shopify's own filters. Choose which filters appear (availability, price, product type, vendor, variant options, metafields) in the **Search & Discovery** app. Size filters are drawn as a grid of size boxes.
+- **Sorting** offers Shopify's sort orders: featured, best selling, alphabetical, price and date.
+- **Pagination** can be a *Load more* button or page numbers.
+- Cards show sale badges, price ranges for products with several prices, and unit prices. What each card shows of the fit line is set in [Theme settings > Fit line](/docs/getting-started/theme-settings#fit-line).
+
+Filtering, sorting and *Load more* update the grid without reloading the page.
+
+<img width="800" height="500" src="/images/docs/collection-page.png" alt="A collection page in the Grid view: the filter sidebar with the Fit zone filter as a ruler, the Grid / Fit line switch, Closest fit first, sort and per-row controls, and product cards with fit lines." />
+
+Add a **Promo tile** block to place a campaign tile first in the grid, on the first page. Add **Sidebar card** and **Sidebar image** blocks to show a short message or an image under the filters on desktop — for example a card that links to your fit guide.
+
+### Grid and Fit line views
+
+**Show Grid / Fit line toggle** lets shoppers switch between the usual product cards (**Grid**) and **Fit line**, a list with one row per product: a thumbnail, the name, the product's `custom.subtitle`, its fit line and the price. It lets shoppers compare how every piece in the collection sits at a glance. Set the view the page opens in with **Default view**.
+
+Filtering, sorting and *Load more* keep the chosen view. In the Fit line view, the **Show 3 / 4 per row toggle** is hidden, since the rows always use the full width.
+
+<img width="800" height="500" src="/images/docs/collection-fit-view.png" alt="A collection page in the Fit line view: one row per product with a thumbnail, name, subtitle, fit line and price, and no per-row toggle in the toolbar." />
+
+Products without a `custom.fit_position` metafield show no fit line. See [Product data](/docs/products/product-data).
+
+### Closest fit first
+
+**Show "Closest fit first"** adds a button to the toolbar that reorders the products on the page from close to oversized, by their `custom.fit_position`. Products without a position move to the end, and a promo tile stays first. Pressing it again restores the original order.
+
+<Callout type="note" title="It reorders the page you're on">
+Shopify's sort orders can't be extended, so **Closest fit first** reorders the products already loaded on the page — not the whole collection. With *Load more*, newly loaded products are placed in order too.
+</Callout>
+
+### Fit filter
+
+When you add a product metafield filter for fit in **Search & Discovery** — for example a `custom.fit_zone` metafield with the values Close, Regular, Relaxed and Oversized — QCut draws it as zones along a ruler, so shoppers filter by the fit line itself. See [Fit filter](/docs/getting-started/theme-settings#fit-filter) for how to set it up.
+
+### Filter chips
+
+**Show filter chips** shows one filter as a row of chips above the grid, each with a tick of color. Enter the filter's name in **Chip filter** — for example *Leg* — or leave it blank to use the first list filter. A chip's color is the filter value's swatch, or else the `custom.color` metafield of the collection with the same name, or else a color from the section's color scheme. Chips need filtering to be on, and keep the other active filters when shoppers pick one.
+
+<SettingsTable section="main-collection" />
+
+## Fit collection template
+
+Assign the **fit** collection template to a collection to lead with the fit line. It opens with a **Cover image** banner, then a **Fit shop** section — shoppers drag along the fit line and the pieces nearest to it move to the front — and the product grid set to open in the **Fit line** view. Every section in the template can be changed or removed like on any other page.
+
+The default collection template ends with a **Fit map** section that places the collection's products along one fit line.
+
+## All collections page
+
+The page at `/collections` lists every collection. Choose a **Layout**:
+
+- **Editorial mosaic** — tiles in a repeating pattern of sizes, each with the product count, title, a line of the description and an *Explore* link. A tile uses the collection image, or else the collection's `custom.color` metafield as its background.
+- **Image grid** — image cards in columns, with **Image shape (grid)** and **Columns on desktop (grid)**.
+
+Both layouts show each collection's fit range: the stretch of the fit line its products cover, from the closest to the loosest piece. Collections whose products have no `custom.fit_position` show no range.
+
+<img width="800" height="460" src="/images/docs/main-list-collections.png" alt="The Collections list page: tall collection images with the title, product count and a bar under each showing the fits the collection covers." />
+
+<SettingsTable section="main-list-collections" />

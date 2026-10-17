@@ -1,0 +1,59 @@
+---
+title: "Pages, contact and FAQ"
+description: "Standard pages with a sidebar menu, the contact page, the FAQ, fit guide and story page templates, and the customer account, 404 and password pages."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## Pages
+
+Every page in **Online Store > Pages** uses the **Page** section: a header band with breadcrumbs, the title and an intro, over your page content. Add a **Sidebar navigation** menu to link related pages — for example shipping, returns, FAQ and contact — and turn on **Show "last updated" date** for policies. To give one page its own intro, fill the page's `custom.intro` metafield; it replaces the section's **Intro**.
+
+<img width="800" height="420" src="/images/docs/main-page.png" alt="A Page section on the fit guide page: the eyebrow Body size chart, the heading Body sizes, in cm, and a size table with chest, waist, hip and height ranges." />
+
+<SettingsTable section="main-page" />
+
+## Contact page
+
+Assign the **contact** page template to your contact page. The page content shows as the intro, beside your **Info** blocks — for example studio hours or a returns address — and an optional image and link. Messages arrive at your store's sender email.
+
+Enter **Topics**, separated by commas, to let shoppers pick a reason as chips above the form. Turn on the order number or phone fields if you need them.
+
+<img width="800" height="470" src="/images/docs/main-contact.png" alt="The contact page: heading with email, hours and studio details and an image on the left, and the form on the right with topic chips, name, email, order number and message fields." />
+
+<SettingsTable section="main-contact" />
+
+## Page templates
+
+QCut includes page templates you can assign to any page in **Online Store > Pages**:
+
+- **faq** — a full help center: search, topics and an accordion of questions, with a help banner below. See the [FAQ section](/docs/sections/engagement#faq) for its settings.
+- **fit-guide** — a page header, the four fit zones, how to measure, a size chart from the page's own content, the **Size finder** and a short FAQ. Write your size chart as a table in the page editor.
+- **story** — an about page built from rich text, an image banner, a row of principles, a statement quote and a newsletter signup.
+
+Every section in these templates can be changed or removed. QCut also includes **library** page templates that show many of its sections with sample content, so you can see them in use before you build your own pages.
+
+## Customer account pages
+
+These pages apply to classic customer accounts. With new customer accounts, Shopify hosts the sign-in and account pages.
+
+On the account page, **Show fit profile** shows the size the shopper saved with the **Size finder** or at sign-up — it's kept in their browser — with a link to update it — set **Fit profile link**, for example to your fit guide page. **Show next delivery** puts the customer's latest subscription purchase first, with its plan and the **Extra link** to manage it — for example a link to your subscription app's portal.
+
+<SettingsTable section="main-account" />
+
+The register page can ask for the shopper's height and usual size with **Ask for fit (optional fields)**. Their answer is added to the customer's note in your admin and saved as their fit profile in that browser, so their size is marked on every product. The login, register, activate account and reset password pages share a side panel with your heading, points and an optional background image. On an order page, the return button links to your contact page unless you set **Return / contact link**.
+
+## 404 page
+
+Choose a **Layout**: **Ruler** shows a short band of color that stops short, its last part only an outline, beside the message, a search field and quick links. **Numeral** shows the message beside a panel with a large *404*, or with your **Image** when you add one. Set **Quick links** to a menu; without one, the page links back to all products.
+
+<img width="800" height="300" src="/images/docs/main-404.png" alt="The 404 page in the Ruler layout: three stacked color bands with the last one outlined, the heading This page is off the line, a search field and a Back to the shop link." />
+
+<SettingsTable section="main-404" />
+
+## Password page
+
+While your store is password protected, the password page shows your brand, a message, a signup form and the password form. The **Outlined colorway bands** layout draws a row of outlined bands, waiting for opening day — one per product of the **Colorway collection**, up to 12, or **Bands without a collection** when no collection is set. **Centered** is a classic centered layout.
+
+<SettingsTable section="main-password" />

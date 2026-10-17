@@ -1,0 +1,52 @@
+---
+title: "Newsletter popup, cookie banner and info drawer"
+description: "Overlays that appear on every page: a newsletter popup, a cookie consent banner and a side drawer for fit notes, sizing help or care."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+Add these sections to the **Footer** group so they work on every page.
+
+## Newsletter popup
+
+Opens after a delay, or when the pointer leaves the page on desktop. Set **Open after** to 0 to open it only when the pointer leaves the page. Once a shopper closes it or signs up, it stays closed for the rest of their visit, and for the number of days in **Keep closed after dismissal**. Set it to 0 to show the popup again in the next visit. After signing up you can show a thank-you message with a discount code — create the code in **Discounts** first.
+
+Choose a **Layout**: **Docked card** is a small card in the bottom-left corner that leaves the page usable. **Centered modal** opens in the middle of the page over a scrim.
+
+<img width="520" height="250" src="/images/docs/newsletter-popup.png" alt="The newsletter popup docked in the bottom-left corner: a heading, one line of text and an email field with a Join button, with the page still visible behind it." />
+
+<SettingsTable section="newsletter-popup" />
+
+## Cookie banner
+
+QCut works with Shopify's own cookie banner. If you turn on the banner in **Settings > Customer privacy**, QCut's banner stays hidden. If you prefer QCut's design, leave Shopify's banner off and add this section — it only appears to visitors in regions that require consent, and every choice is saved through Shopify's Customer Privacy API, so analytics and marketing apps respect it.
+
+<img width="520" height="250" src="/images/docs/cookie-banner.png" alt="The cookie banner as a card in the bottom-right corner: a short message, a Manage link, and Reject non-essential and Accept all buttons." />
+
+Choose a **Layout**: **Card** is a small card in the bottom-right corner with a *Manage* link and two equal buttons to reject or accept. **Bar** runs along the bottom of the page. *Manage* opens a preferences dialog with a switch for analytics and one for marketing.
+
+Any link or button with the attribute `data-open="#cookie-preferences"` reopens the preferences dialog, so shoppers can change their choice later — for example a *Cookie settings* link added with a **Custom liquid** section.
+
+<SettingsTable section="cookie-banner" />
+
+## Info drawer
+
+A side panel with details, a table or text — fit notes, how to measure, care instructions, a returns summary. Open it from its own trigger button, or from any link or button on the page with the attribute `data-open="#drawer-ID"`, where *ID* is the **Drawer ID**. Turn off **Show trigger button** to keep only the drawer.
+
+<img width="800" height="500" src="/images/docs/info-drawer.png" alt="An info drawer titled Fit notes slid in from the right: three notes, each with a round image, a label, a title and one line of text." />
+
+The drawer is built from blocks:
+
+- **Detail** — a label, name and description with a color or image swatch, for example one per fabric.
+- **Table row** — a label and a value, for example *Inseam* and *78 cm*.
+- **Link row** — links such as a care guide or returns page. Turn on **Open in a new tab** for files and outside pages.
+- **Text** — a paragraph of rich text.
+
+Turn on **Show the shopper's saved size** to add a line such as *From your fit profile, take M* — the size the shopper saved in the [Size finder](/docs/fit-line/fit-sections#size-finder) section.
+
+<Callout type="note" title="Looking for the size guide?">
+The product page has its own size guide drawer, with your measurement tables, opened from the **Size guide** button next to the Size option. You don't need an info drawer for it. See [Product page](/docs/products/product-page).
+</Callout>
+
+<SettingsTable section="info-drawer" />

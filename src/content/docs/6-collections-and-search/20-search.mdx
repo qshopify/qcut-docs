@@ -1,0 +1,21 @@
+---
+title: "Search"
+description: "Predictive search in the header and the full search results page with tabs, filters and sorting."
+updated: 2026-10-17
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## Predictive search
+
+As shoppers type in the header search, QCut suggests related search terms, collections, journal articles and products. Each product suggestion shows its image, name, fit line with the name of its zone, and price, so shoppers can tell how a piece sits before they open it. A link at the bottom opens the full results for the search.
+
+Predictive search uses Shopify's own search, so there's nothing to set up. Products without a `custom.fit_position` metafield show no fit line.
+
+## Search results page
+
+Results are grouped into tabs — **All**, **Products**, **Journal** and **Pages**. Products show as product cards, and articles and pages as text cards. The page has the same filters and sorting as collections, including the [fit filter](/docs/collections-and-search/collection-pages#fit-filter) when you've set one up. When nothing matches, shoppers see a message and can search again from the same page.
+
+<img width="800" height="500" src="/images/docs/main-search.png" alt="The search results page: the search term as a large heading with a search button, the All, Products, Journal and Pages tabs, filters on the left and matching products." />
+
+<SettingsTable section="main-search" />
